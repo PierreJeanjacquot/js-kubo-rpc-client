@@ -1,0 +1,14 @@
+import type { Options } from '../../types.js'
+import { createAddLink } from './add-link.js'
+import { createAppendData } from './append-data.js'
+import { createRmLink } from './rm-link.js'
+import { createSetData } from './set-data.js'
+
+export function createPatch (config: Options) {
+  return {
+    addLink: createAddLink(config),
+    appendData: createAppendData(config),
+    rmLink: createRmLink(config),
+    setData: createSetData(config)
+  }
+}

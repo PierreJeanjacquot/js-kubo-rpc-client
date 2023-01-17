@@ -6,16 +6,16 @@ import { createUnsubscribe } from './unsubscribe.js'
 import { SubscriptionTracker } from './subscription-tracker.js'
 
 /**
- * @param {import('../types').Options} config
+ * @param {import('../types').Options} options
  */
-export function createPubsub (config) {
+export function createPubsub (options) {
   const subscriptionTracker = new SubscriptionTracker()
 
   return {
-    ls: createLs(config),
-    peers: createPeers(config),
-    publish: createPublish(config),
-    subscribe: createSubscribe(config, subscriptionTracker),
-    unsubscribe: createUnsubscribe(config, subscriptionTracker)
+    ls: createLs(options),
+    peers: createPeers(options),
+    publish: createPublish(options),
+    subscribe: createSubscribe(options, subscriptionTracker),
+    unsubscribe: createUnsubscribe(options, subscriptionTracker)
   }
 }

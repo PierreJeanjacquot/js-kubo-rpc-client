@@ -1,0 +1,40 @@
+import { configure } from '../lib/configure.js'
+import { toUrlSearchParams } from '../lib/to-url-search-params.js'
+import { multipartRequest } from 'ipfs-core-utils/multipart-request'
+import { abortSignal } from '../lib/abort-signal.js'
+import { toString as uint8ArrayToString } from 'uint8arrays/to-string'
+import { mapEvent } from './map-event.js'
+import type { ClientOptions } from '../types.js'
+import type { QueryEvent } from './events.js'
+
+export const createPut = configure(api => {
+  /**
+   * Write a key/value pair to the DHT.
+   *
+   * Given a key of the form /foo/bar and a value of any
+   * form, this will write that value to the DHT with
+   * that key.
+   */
+  async function * put (key: string | Uint8Array, value: Uint8Array, options?: ClientOptions): AsyncIterable<QueryEvent> {
+    // allow aborting requests on body errors
+    const controller = new AbortController()
+    const signal = abortSignal(controller.signal, options?.signal)
+
+    const res = await api.post('dht/put', {
+      signal,
+      searchParams: toUrlSearchParams({
+        arg: key instanceof Uint8Array ? uint8ArrayToString(key) : key.toString(),
+        ...options
+      }),
+      ...(
+        await multipartRequest([value], controller, options?.headers)
+      )
+    })
+
+    for await (const event of res.ndjson()) {
+      yield mapEvent(event)
+    }
+  }
+
+  return put
+})

@@ -6,15 +6,15 @@ import { createRm } from './rm.js'
 import { createRemote } from './remote/index.js'
 
 /**
- * @param {import('../types').Options} config
+ * @param {import('../types').Options} options
  */
-export function createPin (config) {
+export function createPin (options) {
   return {
-    addAll: createAddAll(config),
-    add: createAdd(config),
-    ls: createLs(config),
-    rmAll: createRmAll(config),
-    rm: createRm(config),
-    remote: createRemote(config)
+    addAll: createAddAll(options),
+    add: createAdd(options),
+    ls: createLs(options),
+    rmAll: createRmAll(options),
+    rm: createRm(options),
+    remote: createRemote(options)
   }
 }

@@ -1,6 +1,6 @@
 
 /**
- * @param {import('..').Options} options
+ * @param {import('../types').Options} options
  * @param {import('./subscription-tracker').SubscriptionTracker} subsTracker
  */
 export const createUnsubscribe = (options, subsTracker) => {

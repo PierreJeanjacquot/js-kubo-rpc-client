@@ -3,12 +3,12 @@ import { createStat } from './stat.js'
 import { createVersion } from './version.js'
 
 /**
- * @param {import('../types').Options} config
+ * @param {import('../types').Options} options
  */
-export function createRepo (config) {
+export function createRepo (options) {
   return {
-    gc: createGc(config),
-    stat: createStat(config),
-    version: createVersion(config)
+    gc: createGc(options),
+    stat: createStat(options),
+    version: createVersion(options)
   }
 }

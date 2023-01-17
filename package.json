@@ -43,14 +43,14 @@
   },
   "files": [
     "src",
-    "dist",
+    "dist/src",
     "!dist/test",
     "!**/*.tsbuildinfo"
   ],
   "exports": {
     ".": {
       "types": "./dist/src/index.d.ts",
-      "import": "./src/index.js",
+      "import": "./dist/src/index.js",
       "require": "./dist/src/index.js"
     }
   },

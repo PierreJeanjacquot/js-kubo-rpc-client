@@ -5,15 +5,14 @@ import { createLocalAddrs } from './local-addrs.js'
 import { createPeers } from './peers.js'
 
 /**
- * @param {import('../types').Options} config
- * @returns {import('../types').IPFS<import('../types').HTTPClientExtraOptions>['swarm']}
+ * @param {import('../types').Options} options
  */
-export function createSwarm (config) {
+export function createSwarm (options) {
   return {
-    addrs: createAddrs(config),
-    connect: createConnect(config),
-    disconnect: createDisconnect(config),
-    localAddrs: createLocalAddrs(config),
-    peers: createPeers(config)
+    addrs: createAddrs(options),
+    connect: createConnect(options),
+    disconnect: createDisconnect(options),
+    localAddrs: createLocalAddrs(options),
+    peers: createPeers(options)
   }
 }
