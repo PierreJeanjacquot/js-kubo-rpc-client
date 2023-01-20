@@ -74,7 +74,6 @@ export type PubsubApiErrorHandlerFn = (err: Error, fatal: boolean, msg?: Message
 export type PubsubAPI = import('ipfs-core-types/src/pubsub').API<ClientOptions & { onError?: PubsubApiErrorHandlerFn }>
 export type RemotePiningAPI = import('ipfs-core-types/src/pin/remote').API<ClientOptions>
 export type RemotePiningServiceAPI = import('ipfs-core-types/src/pin/remote/service').API<ClientOptions>
-export type SwarmAPI = import('ipfs-core-types/src/swarm').API<ClientOptions>
 
 export type MultibaseCodec<Prefix extends string = any> = import('multiformats/bases/interface').MultibaseCodec<Prefix>
 export type { Message, MultihashHasher, Multiaddr }
