@@ -1,11 +1,9 @@
+import type { Options } from '../types.js'
 import { createGc } from './gc.js'
 import { createStat } from './stat.js'
 import { createVersion } from './version.js'
 
-/**
- * @param {import('../types').Options} options
- */
-export function createRepo (options) {
+export function createRepo (options: Options) {
   return {
     gc: createGc(options),
     stat: createStat(options),

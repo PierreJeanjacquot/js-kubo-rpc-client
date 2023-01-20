@@ -1,15 +1,24 @@
 import { configure } from '../lib/configure.js'
 import { toUrlSearchParams } from '../lib/to-url-search-params.js'
+import type { ClientOptions } from '../types.js'
+
+export interface StatResult {
+  numObjects: bigint
+  repoPath: string
+  repoSize: bigint
+  version: string
+  storageMax: bigint
+}
 
 export const createStat = configure(api => {
   /**
-   * @type {import('../types').RepoAPI["stat"]}
+   * Return stats about the repo
    */
-  async function stat (options = {}) {
+  async function stat (options?: ClientOptions): Promise<StatResult> {
     const res = await api.post('repo/stat', {
-      signal: options.signal,
+      signal: options?.signal,
       searchParams: toUrlSearchParams(options),
-      headers: options.headers
+      headers: options?.headers
     })
     const data = await res.json()
 

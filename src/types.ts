@@ -75,8 +75,6 @@ export type PubsubAPI = import('ipfs-core-types/src/pubsub').API<ClientOptions &
 export type RefsAPI = import('ipfs-core-types/src/refs').API<ClientOptions>
 export type RemotePiningAPI = import('ipfs-core-types/src/pin/remote').API<ClientOptions>
 export type RemotePiningServiceAPI = import('ipfs-core-types/src/pin/remote/service').API<ClientOptions>
-export type RepoAPI = import('ipfs-core-types/src/repo').API<ClientOptions>
-export type StatsAPI = import('ipfs-core-types/src/stats').API<ClientOptions>
 export type SwarmAPI = import('ipfs-core-types/src/swarm').API<ClientOptions>
 
 export type MultibaseCodec<Prefix extends string = any> = import('multiformats/bases/interface').MultibaseCodec<Prefix>
