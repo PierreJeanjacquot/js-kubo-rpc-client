@@ -4,11 +4,9 @@ import { createPublish } from './publish.js'
 import { createSubscribe } from './subscribe.js'
 import { createUnsubscribe } from './unsubscribe.js'
 import { SubscriptionTracker } from './subscription-tracker.js'
+import type { Options } from '../types.js'
 
-/**
- * @param {import('../types').Options} options
- */
-export function createPubsub (options) {
+export function createPubsub (options: Options) {
   const subscriptionTracker = new SubscriptionTracker()
 
   return {

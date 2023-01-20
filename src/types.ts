@@ -71,7 +71,6 @@ export type BlockCodec<T1 = any, T2 = any> = import('multiformats/codecs/interfa
 export type MessageHandlerFn<EventType = Message> = import('@libp2p/interfaces/events').EventHandler<EventType>
 export type PinAPI = import('ipfs-core-types/src/pin').API<ClientOptions>
 export type PubsubApiErrorHandlerFn = (err: Error, fatal: boolean, msg?: Message) => void
-export type PubsubAPI = import('ipfs-core-types/src/pubsub').API<ClientOptions & { onError?: PubsubApiErrorHandlerFn }>
 export type RemotePiningAPI = import('ipfs-core-types/src/pin/remote').API<ClientOptions>
 export type RemotePiningServiceAPI = import('ipfs-core-types/src/pin/remote/service').API<ClientOptions>
 
